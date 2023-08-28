@@ -4,7 +4,7 @@ Foloow along with Pandas Tutorial on Youtube using a cars dataset sourced at Kag
 '''
 
 import pandas as pd
-import seaborn as sn
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Read in the dataset.
@@ -94,3 +94,23 @@ Mst_Exp_Rnlt
 
 # Did the filter in one line where he took 2 lines to filter.
 
+# Plot some charts
+# Plot numbers of Makes
+
+# car_Data2['Make'].value_counts().plot(kind = 'bar', title='Numbers for sale by Make')
+# car_Data2['Fuel_Type'].value_counts().plot(kind = 'bar', title='Numbers for sale by Fuel Type')
+# car_Data2['Seating'].value_counts().plot(kind = 'bar', title='Numbers for sale by Seating')
+# car_Data2['Price'].plot(kind = 'hist', title='Numbers for sale by Price')
+car_Data2['Kilometer'].plot(kind = 'kde')
+
+car_Data2.describe()
+
+# Plot correlations as heatmap
+
+corr = car_Data2[['Price', 'Year', 'Kilometer']].corr()
+sns.heatmap(corr, annot = True)
+
+car_Data2.plot(kind = 'scatter', x='Price', y='Year', title='Price versus Year')
+car_Data2.plot(kind = 'scatter', x='Price', y='Kilometer', title='Price versus Year')
+
+car_Data2['Drivetrain'].value_counts().plot(kind = 'pie', title='Percentage by Drive Train')
