@@ -57,3 +57,40 @@ car_Data2['Location'].value_counts()
 # Check numeric columns stats
 
 car_Data2.describe()
+
+# Find all electric cars.  He does it on 0 cylinders; I don't have cylinders but
+# have a fuel type of Electric available.
+
+Electric_veh_df = car_Data2[car_Data2['Fuel_Type'] == 'Electric']
+Electric_veh_df
+Electric_veh_df.shape
+
+# Electic vehicles by Tata
+
+Elec_Tata_df = Electric_veh_df[Electric_veh_df['Make'] == 'Tata']
+Elec_Tata_df
+Elec_Tata_df['Make'].value_counts()
+
+# BMW and Diesel engines
+
+BMW_Dsl_df = car_Data2[(car_Data2['Make']=='BMW') & (car_Data2['Fuel_Type'] == 'Diesel')]
+BMW_Dsl_df.head()
+
+# Check maximum price
+
+Max_price = car_Data2['Price'].max()
+Max_price
+
+# Find most expensive car
+
+Most_Exp = car_Data2[car_Data2['Price'] == Max_price]
+Most_Exp
+
+# Renault data and max price of Tesla
+
+Renault_Exp = car_Data2[car_Data2['Make'] == 'Renault']
+Mst_Exp_Rnlt = Renault_Exp[Renault_Exp['Price']==Renault_Exp['Price'].max()]
+Mst_Exp_Rnlt
+
+# Did the filter in one line where he took 2 lines to filter.
+
