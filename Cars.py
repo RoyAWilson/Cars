@@ -35,3 +35,25 @@ car_Data2['Width'] = car_Data2['Width'].fillna(str(car_Data2['Width'].mode()))
 car_Data2['Height'] = car_Data2['Height'].fillna(str(car_Data2['Height'].mode()))
 car_Data2['Max_Fuel'] = car_Data2['Max_Fuel'].fillna(str(car_Data2['Max_Fuel'].mean()))
 car_Data2['Seating'] = car_Data2['Seating'].fillna(str(car_Data2['Seating'].mode()))
+
+#Check for duplicates
+
+car_Data_Dupes = car_Data2[car_Data2.duplicated]
+
+# Great have no dupes in the dataset I am using
+# The turor has some though.  To remove syntax = car_Data2.drop_duplicates()
+
+#Checking unique manufactures
+
+car_Data2['Make'].unique()
+car_Data2['Make'].nunique()
+
+# Number of cars in each 'Make' and other value counts just to practice.    
+
+car_Data2['Model'].value_counts()
+car_Data2['Drivetrain'].value_counts()
+car_Data2['Location'].value_counts()
+
+# Check numeric columns stats
+
+car_Data2.describe()
